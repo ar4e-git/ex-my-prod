@@ -68,9 +68,11 @@ const corsOptions = {
 
 app.disable('x-powered-by');
 
-app.use(cors(corsOptions));
+app.get('/', (req, res) => {
+	res.send('IP denied!');
+});
 
-app.get('/channel/:id.m3u8/:shift?', async (req, res, next) => {
+app.get('/channel/:id.m3u8/:shift?', cors(corsOptions), async (req, res, next) => {
 	
 	const channel = req.params.id;
 
