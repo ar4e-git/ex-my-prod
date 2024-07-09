@@ -81,7 +81,7 @@ app.get('/channel/:id.m3u8/:shift?', cors(corsOptions), async (req, res, next) =
 		const url = await getURL(channel, req.params.shift);
 		const retUrl = `${url_send}${url.split('/')[3]}`;
 
-		res.redirect(301, retUrl);
+		res.redirect(302, retUrl);
 		
 	} catch (err) {
 		console.log('Error in get: ', err);
